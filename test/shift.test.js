@@ -1,15 +1,15 @@
 const { getShift } = require('../cipher');
 
-describe("get shift from code", () => {
-  test("return config", () => {
+describe('get shift from code', () => {
+  test('return shift', () => {
     const code = 'A';
-    expect(getShift(code,2)).toBe(21);
+    expect(getShift(code, 12)).toBe(1);
   });
-  test("return null", () => {
-    const code ='R0';
+  test('return shift', () => {
+    const code = 'R0';
     expect(getShift(code)).toBe(-8);
   });
-  test("return config", () => {
+  test('return shift', () => {
     const code = 'C1';
     expect(getShift(code)).toBe(1);
   });
