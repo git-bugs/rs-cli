@@ -13,9 +13,9 @@ const getShift = (code, index) => {
     default:
       return shift;
   }
-}
+};
 
-module.exports = (data, code) => {
+const encryption = (data, code) => {
   let newData = '';
   for (let i of data) {
     let register = false;
@@ -34,4 +34,6 @@ module.exports = (data, code) => {
     newData += shiftered;
   }
   return newData;
-}
+};
+
+module.exports = { getShift, encryption };

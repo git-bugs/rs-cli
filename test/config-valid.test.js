@@ -1,6 +1,6 @@
 const { configValid } = require('../validator');
 
-describe("Config check", () => {
+describe("Config validation", () => {
   test("return config", () => {
     const config = ['-c','A-C1-R0'];
     expect(configValid(config)).toBe('A-C1-R0');
