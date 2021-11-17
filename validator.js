@@ -1,7 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const ReadStream = require('./streams/readStream');
-const WriteStream = require('./streams/writeStream');
 
 const keys = {
   config: ['-c', '--config'],
@@ -65,25 +63,25 @@ const validator = (args) => {
   const doubleCheckResult = doubleCheck(args);
   if (!doubleCheckResult) process.exit(1);
 
-  let readStream;
+  let input = null;
   const inputFlag = args.filter(item => item === '-i' || item === '--input');
   if (inputFlag.length) {
     const inputName = args[args.indexOf(inputFlag[0]) + 1];
     const inputCheck = fileCheck(inputName);
     if (!inputCheck) process.exit(1);
-    readStream = new ReadStream(inputName);
-  } else readStream = process.stdin;
+    input = inputName;
+  }
 
-  let writeStream;
+  let output = null;
   const outputFlag = args.filter(item => item === '-o' || item === '--output');
   if (outputFlag.length) {
     const outputName = args[args.indexOf(outputFlag[0]) + 1];
     const outputCheck = fileCheck(outputName);
     if (!outputCheck) process.exit(1);
-    writeStream = new WriteStream(outputName)
-  } else writeStream = process.stdout;
+    output = outputName;
+  }
 
-  return { readStream, writeStream, config: config.split('-') };
+  return { input, output, config };
 };
 
 module.exports = { validator, doubleCheck, configCheck, configValid, fileCheck };

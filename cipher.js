@@ -36,4 +36,5 @@ const encryption = (data, code) => {
   return newData;
 };
 
+
 module.exports = { getShift, encryption };
