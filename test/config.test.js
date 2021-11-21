@@ -1,16 +1,16 @@
 const { configCheck } = require('../validator');
 
 describe('Config check', () => {
-  test('return false', () => {
+  test('throw error', () => {
     const args = ['-i', 'input.txt', '--input', 'input.txt'];
-    expect(configCheck(args)).toBe(false);
+    expect(()=>configCheck(args)).toThrow('No configuration set!');
   });
-  test('return true', () => {
+  test('', () => {
     const args = ['-c', 'C1-A', '--input', 'input.txt'];
-    expect(configCheck(args)).toBe(true);
+    expect(()=>configCheck(args)).not.toThrow();
   });
-  test('return true', () => {
-    const args = ['-c', 'C1-A', '--config'];
-    expect(configCheck(args)).toBe(true);
+  test('', () => {
+    const args = ['--config', 'C1-A-R0-R1'];
+    expect(()=>configCheck(args)).not.toThrow();
   });
 });

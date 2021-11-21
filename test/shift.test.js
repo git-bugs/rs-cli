@@ -10,7 +10,7 @@ describe('get shift from code', () => {
     expect(getShift(code)).toBe(-8);
   });
   test('return shift', () => {
-    const code = 'C1';
-    expect(getShift(code)).toBe(1);
+    const code = 'C0';
+    expect(getShift(code)).toBe(-1);
   });
 });

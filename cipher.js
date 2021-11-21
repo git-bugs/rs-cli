@@ -10,8 +10,6 @@ const getShift = (code, index) => {
       return +code[1] ? shift = 8 : shift = -8;
     case 'A':
       return shift = ALPHABET_LENGTH - 1 - 2 * index;
-    default:
-      return shift;
   }
 };
 

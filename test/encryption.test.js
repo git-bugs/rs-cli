@@ -16,4 +16,9 @@ describe('encryption data', () => {
     const data = 'This is secret!!!'
     expect(encryption(data, code)).toBe('Lzak ak kwujwl!!!');
   });
+  test('return new data', () => {
+    const code = 'R1';
+    const data = 'Z!!!'
+    expect(encryption(data, code)).toBe('H!!!');
+  });
 });

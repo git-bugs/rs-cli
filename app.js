@@ -1,6 +1,6 @@
 const { validator } = require('./validator');
 const { pipeline } = require('stream');
-const transformStream = require('./streams/transformStream');
+const TransformStream = require('./streams/transformStream');
 const ReadStream = require('./streams/readStream');
 const WriteStream = require('./streams/writeStream');
 
@@ -14,7 +14,7 @@ output && (writeStream = new WriteStream(output));
 
 const getTransforms = () => {
   const transformArray = [];
-  config.split('-').forEach(code => transformArray.push(new transformStream(code)));
+  config.split('-').forEach(code => transformArray.push(new TransformStream(code)));
   return transformArray;
 };
 const transformStreams = getTransforms();
