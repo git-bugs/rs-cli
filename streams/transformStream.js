@@ -1,5 +1,5 @@
 const { Transform } = require('stream');
-const cipher = require('../cipher');
+const { encryption } = require('../cipher');
 
 class TransformStream extends Transform {
   constructor(code) {
@@ -7,7 +7,7 @@ class TransformStream extends Transform {
     this.code = code;
   }
   _transform(chunk, encoding, next) {
-    this.push(cipher(chunk.toString(), this.code));
+    this.push(encryption(chunk.toString(), this.code));
     next();
   }
 };

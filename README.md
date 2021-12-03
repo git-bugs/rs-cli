@@ -1,3 +1,10 @@
+## **Test**
+
+Run all tests `npm test`
+Test coverage `npm run test:coverage`
+
+---
+
 ## **Ciphering CLI Tool**
 ---
 The application uses three types of cipher: 
@@ -20,4 +27,3 @@ Where `<options>`:
   3. `-o`, `--output`: a path to output file
 
   Example config `"A-C1-R1"` means "Atbash cipher => encode by Caesar cipher => encode by ROT-8"
-
